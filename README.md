@@ -1,6 +1,8 @@
 # Restful
 An opinionated REST library for Meteor
 
+### Check out **[restful.readme.io](https://restful.readme.io/docs)** for the full docs!
+
 <br>
 ## Why
 Restful aims at doing more than just providing a router with a callback. It aims to provide developer hapiness, productivity, and testability.
@@ -17,13 +19,15 @@ Using `meteor-model` and `restful-repo` allows you to easily validate and store 
 
 
 ## Installation
-`meteor add skinnygeek1010:restful` *(not live yet)*
+`meteor add skinnygeek1010:restful`  
 It's best to start with a boilerplate to learn how everything works. Checkout the example app folder for this.
 
-
-
-### Check out **https://restful.readme.io/docs** for the full docs!
-
+## Examples Repo
+- `git clone https://github.com/AdamBrodzinski/meteor-restful.git`  
+- `cd meteor-restful`  
+- `cd examples/simple`  
+- `meteor`  
+- `curl -X GET localhost:3000/posts`  
 
 
 
