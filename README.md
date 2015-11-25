@@ -47,7 +47,5 @@ It's best to start with a boilerplate to learn how everything works. Checkout th
 - `curl -X GET localhost:3000/posts`  
 
 
-
-### Does this work with Meteor methods and publications?
-
-If there is enough demand for this i'll consider adding routes that call your module functions as needed. This could keep all of your websocket requests in one area so it's easy to see the entry points of the app.
+### Docs & Guides
+**[restful.readme.io](https://restful.readme.io/docs)**
