@@ -5,16 +5,33 @@ An opinionated REST library for Meteor
 
 <br>
 ## Why
-Restful aims at doing more than just providing a router with a callback. It aims to provide developer hapiness, productivity, and testability.
 
-Restful adds the concept of controllers and an *optional* layer to munge data outside of the controller (like converting dates to a unix timestamp or wrapping with `{data:..}`) in a way that's testable. Middleware is easily added with any connect middleware on NPM.
+Restful aims at doing more than just providing a router with a callback. It aims to provide developer happiness, productivity, and testability. It does things the 'Unix' way by providing several small functions that can be composed together.
 
-Restful is inspired from the Phoenix framework and their take on functional programming for web frameworks.
+By leveraging functional programming over OO, we end up with a system that is very easy to test. Every function takes an input, the `connection` object and returns a value, again the `connection` object. 
 
-Restful is a framework that combines the packages `restful-api`, `restful-repo`, `resful-model`, and `simple-schema` together to make one main package `restful`. Any of these can be used on their own.
+The middleware, router, controller, and optional view (serialization) layers form a composable  pipeline with each layer each taking a `conn`, transforming it, and passing it down to another layer until it's finally sent to the client.
 
+You can think of the 'functional' pipeline conceptually like this:
 
-Using `meteor-model` and `restful-repo` allows you to easily validate and store data while providing slim controllers. The model package provides a seamless inegration with SimpleSchema and the repo. The repo package abstracts your database and has optional methods that throw and return JSON errors automatically for resources that were expected to be present (see [project page](#) for more details).
+```
+Request - localhost/posts
+               V
+               V
+Middleware (transforms all connections)
+               V
+               V
+Router - (Dispatches matching route to controller)
+               V
+               V        
+Controller (side effects and data mutation)
+               V
+               V        
+View (transform payload eg, wrapping with 'data', omitting fields, or conv. timestamps)
+               V
+               V            
+```
+
 
 
 
